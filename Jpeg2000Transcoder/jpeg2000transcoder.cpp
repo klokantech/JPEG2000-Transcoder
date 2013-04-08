@@ -251,8 +251,8 @@ void Jpeg2000Transcoder::parseIniFile(QString iniFile)
 void Jpeg2000Transcoder::checkDependencies()
 {
 	QString errorString = "The following files are missing: ";
-	std::ifstream kakaduFile((getExeDir()+"kdu_compress.exe").toLocal8Bit().constData());
-	std::ifstream djpegFile((getExeDir()+"djpeg.exe").toLocal8Bit().constData());
+	std::ifstream kakaduFile((getExeDir()+"bins\\kdu_compress.exe").toLocal8Bit().constData());
+	std::ifstream djpegFile((getExeDir()+"bins\\djpeg.exe").toLocal8Bit().constData());
 	std::ifstream configFile((getExeDir()+CONFIGURATION).toLocal8Bit().constData());
 	if (!kakaduFile)
 	{

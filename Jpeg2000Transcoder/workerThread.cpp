@@ -37,7 +37,7 @@ int WorkerThread::transcodeFile(QString source, QString destination, QString par
 		tempPPM = tempPPM.remove(0,tempPPM.lastIndexOf("\\"));
 		tempPPM.prepend(destination);
 		wchar_t bufferExePath[MAX_PATH+1] = L"";
-		("\""+exeDir+"djpeg.exe\"").toWCharArray(bufferExePath);//put app path + name to bufferExePath 
+		("\""+exeDir+"bins\\djpeg.exe\"").toWCharArray(bufferExePath);//put app path + name to bufferExePath 
 		wchar_t bufferParams[1000] = L"";
 		("-pnm \""+source+"\" \""+tempPPM+"\"").toWCharArray(bufferParams); // put params for transcoding to bufferParams
 		//set everything important for executing djpeg.exe through ShellExecuteEx(ShellExecuteInfo)
@@ -64,7 +64,7 @@ int WorkerThread::transcodeFile(QString source, QString destination, QString par
 	}
 	//transcode to jpeg2000
 	wchar_t bufferExePath[MAX_PATH+1] = L"";
-	("\""+exeDir+"kdu_compress.exe\"").toWCharArray(bufferExePath);//put app path + name to bufferExePath
+	("\""+exeDir+"bins\\kdu_compress.exe\"").toWCharArray(bufferExePath);//put app path + name to bufferExePath
 	wchar_t bufferParams[10000] = L"";
 	("-i \""+source+"\" -o \""+name+"\" "+parameters).toWCharArray(bufferParams);//put params for transcoding to bufferParams
 	//set everything important for executing external app
